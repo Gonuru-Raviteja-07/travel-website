@@ -1,0 +1,175 @@
+<div class="outer">
+    <div class="sticky">
+        <app-side-bar></app-side-bar>
+    </div>
+    <div class="container">
+        <p class="topMsg" *ngIf="info.errorMsg">{{info.errorMsg}}</p>
+        <div>
+            <div class="listcontainer">
+                <button class="btn btn1" (click)="roundTripClicked()" #rt>Round trip</button>
+                <button class="btn btn2" (click)="oneWayClicked()" #ow>One Way</button>
+                <button class="btn btn3" (click)="multiStopClicked()" #ms>Multi stop</button>
+            </div>
+        </div>
+
+        <div class="btnOnetitle">
+            <div class="sideTitle">
+                <p class="searchEntries"><b>--</b> Search entries</p>
+            </div>
+
+            <div class="one-way" *ngIf='showAvaBtn'>
+                <app-round-trip *ngIf="displayRoundTrip"></app-round-trip>
+                <app-one-way *ngIf="displayOneWay"></app-one-way>
+            </div>
+
+            <app-multi-stop *ngIf="displayMultiStop"></app-multi-stop>
+
+            <div class="bottomBtns" *ngIf='showAvaBtn'>
+                <button class="btn btn-primary" (click)="searchFlights()">Availability</button>
+            </div>
+
+            <div *ngIf="displayflights">
+                <div>
+                    <button class="result">Result Availability</button>
+                </div>
+
+                <div class="resultAvailability">
+                    <p class="searchEntries">{{info.fromPlace}} <b>-</b> {{info.toPlace}}</p>
+                </div>
+                <!------------------------------------------------ Display flights -------------------------------------------------------------->
+                <div class="tableOne">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th><b>Flight</b></th>
+                                <th><b>BC</b></th>
+                                <th><b>From</b></th>
+                                <th><b>To</b></th>
+                                <th><b>Departure</b></th>
+                                <th><b>Arrival</b></th>
+                                <th><b>Stops</b></th>
+                                <th><b>Duration</b></th>
+                                <th><b>Equipment</b></th>
+                                <th><b>Source</b></th>
+                            </tr>
+                        </thead>
+                        <tbody *ngFor="let flight of flights; let i=index">
+                            <tr>
+                                <td>
+                                    {{i+1}}<input type="checkbox" [checked]="flight.checked">
+                                </td>
+                                <td>
+                                    <p class="styling"><a routerLink="#">{{flight.flightNumber}}</a></p>
+                                </td>
+                                <td>
+                                    <button *ngFor="let cabin of flight.cabins" class="styling"
+                                        [ngClass]="{'selected': flight.selectedCabin===cabin}"
+                                        (click)="selectCabin1(i,cabin,flight)">{{cabin}}</button>
+                                </td>
+                                <td>
+                                    <p class="styling"><a routerLink="#">{{flight.from}}</a></p>
+                                </td>
+                                <td>
+                                    <p class="styling"><a routerLink="#">{{flight.to}}</a></p>
+                                </td>
+                                <td>
+                                    <p>{{flight.departureTime}}</p>
+                                </td>
+                                <td>
+                                    <p>{{flight.arrivalTime}}</p>
+                                </td>
+                                <td>
+                                    <p>{{flight.stops}}</p>
+                                </td>
+                                <td>
+                                    <p>{{flight.duration}}</p>
+                                </td>
+                                <td>
+                                    <p>{{flight.airLine}}</p>
+                                </td>
+                                <td>
+                                    <p>AMA</p>
+                                </td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+                    <p class="showMsg1"></p>
+                </div>
+            </div>
+            <br>
+            <!------------------------------------------------ Display Return flights ------------------------------------------------>
+            <div *ngIf="displayReturnFlights">
+                <div class="resultAvailability">
+                    <p class="searchEntries">{{info.toPlace}} <b>-</b> {{info.fromPlace}}</p>
+                </div>
+
+                <div class="tableOne">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th><b>Flight</b></th>
+                                <th><b>BC</b></th>
+                                <th><b>From</b></th>
+                                <th><b>To</b></th>
+                                <th><b>Departure</b></th>
+                                <th><b>Arrival</b></th>
+                                <th><b>Stops</b></th>
+                                <th><b>Duration</b></th>
+                                <th><b>Equipment</b></th>
+                                <th><b>Source</b></th>
+                            </tr>
+                        </thead>
+                        <tbody *ngFor="let flight of returnFlights; let i=index">
+                            <tr>
+                                <td>
+                                    {{i+1}}<input type="checkbox" [checked]="flight.checked">
+                                </td>
+                                <td>
+                                    <p class="styling"><a routerLink="#">{{flight.flightNumber}}</a></p>
+                                </td>
+                                <td>
+                                    <button *ngFor="let cabin of flight.cabins" class="styling"
+                                        [ngClass]="{'selected': flight.selectedCabin===cabin}"
+                                        (click)="selectCabin2(i,cabin,flight)">{{cabin}}</button>
+                                </td>
+                                <td>
+                                    <p class="styling"><a routerLink="#">{{flight.from}}</a></p>
+                                </td>
+                                <td>
+                                    <p class="styling"><a routerLink="#">{{flight.to}}</a></p>
+                                </td>
+                                <td>
+                                    <p>{{flight.departureTime}}</p>
+                                </td>
+                                <td>
+                                    <p>{{flight.arrivalTime}}</p>
+                                </td>
+                                <td>
+                                    <p>{{flight.stops}}</p>
+                                </td>
+                                <td>
+                                    <p>{{flight.duration}}</p>
+                                </td>
+                                <td>
+                                    <p>{{flight.airLine}}</p>
+                                </td>
+                                <td>
+                                    <p>AMA</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p class="showMsg2"></p>
+                </div>
+            </div>
+            <!------------------------------------------------------------------------------------------------------- -->
+
+            <div class="bottomBtns" *ngIf="displayflights">
+                <button class="btn btn-primary" (click)="pickedFlight()">Pick it</button>
+            </div>
+        </div>
+    </div>
+</div>

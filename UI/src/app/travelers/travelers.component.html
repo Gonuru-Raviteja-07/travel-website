@@ -1,0 +1,80 @@
+<div class="btnOne">
+    <div class="msgContainer">
+        <p class="msg">Select existing passenger or add new passenger</p>
+    </div>
+    <div>
+        <input type="text" placeholder="Surname/Firstname/Salutation" [formControl]="control" [matAutocomplete]="auto"
+            class="form-select w-50">
+        <mat-autocomplete #auto="matAutocomplete">
+            @for (passenger of filteredPassengers | async; track passenger) {
+            <mat-option [value]="passenger">{{passenger}}</mat-option>
+            }
+        </mat-autocomplete>
+    </div>
+    <br>
+    <div class="sideTitle">
+        <p class="travelers"><b>--</b> Travelers</p>
+    </div>
+    <div class="tableOne">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th><b>Type</b></th>
+                    <th><b>Surname</b></th>
+                    <th><b>First Name</b></th>
+                    <th><b>Title</b></th>
+                    <th><b>Salutation</b></th>
+                    <th><b>Company</b></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let passenger of info.passengers; let i=index">
+                <tr>
+                    <td>
+                        <button style="border: none;"><i class="fa-solid fa-circle-play"></i></button>
+                    </td>
+                    <td>
+                        <p>T{{i+1}}</p>
+                    </td>
+                    <td>
+                        <select name="age" class="form-select inputs">
+                            <option value="adult">ADT</option>
+                            <option value="child">CHD</option>
+                        </select>
+                    </td>
+                    <td>
+                        <input class="form-control inputs" [(ngModel)]="info.passengerSurname"
+                            value="{{passenger.sname}}">
+                    </td>
+                    <td>
+                        <input class="form-control inputs" [(ngModel)]="info.passengerName" value="{{passenger.name}}">
+                    </td>
+                    <td>
+                        <select name="title" class="form-select inputs">
+                        </select>
+                    </td>
+                    <td>
+                        <select name="Salutation" class="form-select inputs">
+                            <option value="MR">MR</option>
+                            <option value="MRS">MRS</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select name="company" class="form-select inputs">
+                            <option value="one">PASS Test Company</option>
+                            <option value="two">PASS IT Company</option>
+                        </select>
+                    </td>
+                    <td>
+                        <button class="deletebtn" (click)="deletePassenger(passenger)">
+                            <i class="fa-regular fa-trash-can" style="color: whitesmoke;"></i>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="msgtwo" *ngIf="info.passengers.length===0">Currently no passengers selected</p>
+    </div>
+</div>

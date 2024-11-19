@@ -1,0 +1,36 @@
+.outer{
+    height: 100vh;
+    background-color: lightblue;
+    padding-top: 30px;
+}
+.msg {
+    color: rgb(37, 37, 225);
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.container {
+    border: 2px solid white;
+    border-radius: 10px;
+    background-color: white;
+    width: 350px
+}
+.heading{
+   padding-top: 10px;
+   color: rgb(37, 37, 225);
+   font-family:Georgia, 'Times New Roman', Times, serif;
+}
+.feild{
+    border: 1px solid rgb(0, 0, 0);
+    background-color: whitesmoke;
+}
+.error {
+    color: red;
+    text-align: center;
+}
+.bottomContainer{
+    display: flex;
+}
+.fwd{
+    margin-left: auto;
+}

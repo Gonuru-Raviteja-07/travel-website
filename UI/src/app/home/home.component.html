@@ -1,0 +1,28 @@
+<div class="outer">
+    <app-side-bar></app-side-bar>
+    <div class="container inner">
+        <div class="listcontainer">
+            <button class="btn choosePassengerbtn" #cp (click)="choosePassengerClicked()">Choose passenger</button>
+            <button class="btn pnrSearchbtn" #pnr (click)="pnrSearchClicked()">PNR search</button>
+            <button class="btn">Travel documents</button>
+            <button class="btn">Queue</button>
+        </div>
+        <!---------------------------------------------------------------------------------------------------->
+        <div *ngIf="displayChoosePassengerContent">
+            <app-travelers></app-travelers>
+            <div class="searchbtns">
+                <button class="btn flightbtn" (click)="searchflights()">Flight search</button>
+                <button class="btn hotelbtn">Hotel search</button>
+                <button class="btn carbtn">Car search</button>
+                <div class="rightbtn">
+                    <button class="btn btn clearbtn" (click)="deletePassengers()"><i class="fa-solid fa-eraser"></i>
+                        Clear
+                        list</button>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="!displayChoosePassengerContent">
+            <app-pnr-search></app-pnr-search>
+        </div>
+    </div>
+</div>

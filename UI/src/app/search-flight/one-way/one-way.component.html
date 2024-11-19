@@ -1,0 +1,47 @@
+<div class="container oneStopInner">
+    <div>
+        <button class="arrowbtn"><i class="fa-solid fa-greater-than"></i></button>
+    </div>
+
+    <div class="container">
+        <label><b>Origin *</b></label>
+        <input type="text" placeholder="Airport/City code" matInput [formControl]="myControl1" [matAutocomplete]="auto"
+            class="form-select">
+        <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let option of options" [value]="selectedAirport[0]">{{option}}</mat-option>
+        </mat-autocomplete>
+    </div>
+
+    <div>
+        <button class="searchbtn"><i class="fa-solid fa-magnifying-glass"></i></button>
+    </div>
+
+    <div class="container">
+        <label><b>Destination *</b></label>
+        <input type="text" placeholder="Airport/City code" matInput [formControl]="myControl2" [matAutocomplete]="auto"
+            class="form-select">
+        <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let option of options" [value]="selectedAirport[0]">{{option}}</mat-option>
+        </mat-autocomplete>
+    </div>
+
+    <div>
+        <button class="searchbtn"><i class="fa-solid fa-magnifying-glass"></i></button>
+    </div>
+
+    <div class="container w-50">
+        <label><b>Date *</b></label>
+        <input type="text" class="form-control displayDate" placeholder="dd/mm/yyyy" [formControl]="dateControl">
+    </div>
+
+    <div>
+        <button class="datebtn" id="datePicker"><i class="fa-solid fa-calendar-days"></i></button>
+    </div>
+
+    <div class="container w-50">
+        <label><b>Time</b></label>
+        <input class="form-control" [(ngModel)]="timeInput" placeholder="hh:mm"
+            (ngModelChange)="validateTimeFormat(timeInput)">
+    </div>
+</div>
+<p>{{info.timeError}}</p>

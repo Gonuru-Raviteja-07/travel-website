@@ -1,0 +1,46 @@
+.outer{
+    height: 100%;
+    width: 100%;
+    background-color: lightblue;
+    padding-top: 29px;
+}
+
+.msg {
+    color: rgb(37, 37, 225);
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.container {
+    border: 2px solid white;
+    border-radius: 10px;
+    background-color: white;
+    width: 350px;
+}
+.heading{
+   padding-top: 10px;
+   color: rgb(37, 37, 225);
+   font-family:Georgia, 'Times New Roman', Times, serif;
+}
+.feild{
+    cursor: pointer;
+}
+.buttons{
+    margin-bottom: 10px;
+}
+.btnone{
+    margin-right: 10px;
+}
+.btntwo{
+    background-color: rgb(42, 40, 40);
+    border: none;
+}
+.btnone .btntwo:hover{
+   background-color: orangered;
+}
+.dropdn{
+    font-size: 20px;
+}
+.error {
+    color: red;
+}

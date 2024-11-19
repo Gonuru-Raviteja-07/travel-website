@@ -1,0 +1,70 @@
+<div class="container">
+    <div class="box1">
+        <Label style="margin-top: 2.5px;">Enter your PNR Number : </Label>
+        <input type="text" class="form-control inputBox" [(ngModel)]="pnrNo">
+        <button class="searchbtn" (click)="searchClicked()">search</button>
+    </div>
+    <p *ngIf="errorMsg" class="errorMsg">Plese enter correct PNR Number</p>
+    <br>
+    <div *ngIf="displayResults">
+        <div class="sideTitle">
+            <p class="searchEntries"><b>--</b> Booked Flights Details</p>
+        </div>
+        <div class="tableOne">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Username</th>
+                        <th><b>Source</b></th>
+                        <th><b>Flight No</b></th>
+                        <th><b>BC</b></th>
+                        <th><b>From</b></th>
+                        <th></th>
+                        <th></th>
+                        <th><b>To</b></th>
+                        <th><b>From</b></th>
+                        <th><b>To</b></th>
+                        <th><b>Equipment</b></th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let flight of ListOfBookedFlightsFromDB">
+                    <tr>
+                        <td>
+                            <p>{{flight.fullName}}</p>
+                        </td>
+                        <td>
+                            <p>AMA</p>
+                        </td>
+                        <td>
+                            <p>{{flight.flightNumber}}</p>
+                        </td>
+                        <td>
+                            <p>{{flight.selectedCabin}}</p>
+                        </td>
+                        <td>
+                            <p>{{flight.fromDate}}</p>
+                        </td>
+                        <td>
+                            <p>{{flight.from}}</p>
+                        </td>
+                        <td>
+                            <p>{{flight.to}}</p>
+                        </td>
+                        <td>
+                            <p>{{flight.toDate}}</p>
+                        </td>
+                        <td>
+                            <p>{{flight.departureTime}}</p>
+                        </td>
+                        <td>
+                            <p>{{flight.arrivalTime}}</p>
+                        </td>
+                        <td>
+                            <p>{{flight.airLine}}</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

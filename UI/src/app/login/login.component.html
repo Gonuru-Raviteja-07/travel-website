@@ -1,0 +1,26 @@
+<div class="outer">
+    <div class="container">
+        <form #fm="ngForm">
+            <div>
+                <h6 class="heading">Login</h6>
+                <p class="msg">please enter your login data</p>
+            </div>
+            <div>
+                <Label>Username</Label>
+                <input type="text" name="username" class="form-control feild" ngModel required>
+            </div>
+            <div>
+                <Label>Password</Label>
+                <input type="password" name="password" class="form-control feild" ngModel minlength="8" required>
+            </div>
+            <br>
+            <div class="bottomContainer">
+                <button class="btn btn-primary" (click)="validate(fm)">LogIn</button>
+                <div class="fwd">
+                    <a href="#" class="fpwd">forgot password?</a>
+                </div>
+            </div>
+            <p class="error">{{errorMsg}}</p>
+        </form>
+    </div>
+</div>

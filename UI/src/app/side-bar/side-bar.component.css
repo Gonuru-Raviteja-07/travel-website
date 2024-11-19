@@ -1,0 +1,53 @@
+.sideNav {
+    width: 205px;
+    height: 100vh;
+    border-right: 1.5px solid black;
+}
+
+.listOfBtns {
+    height: 65%;
+    background-color: rgb(70, 66, 66);
+}
+
+.title{
+    padding-left: 10px;
+}
+.btns {
+    color: white;
+    background-color: rgb(70, 66, 66);
+    border: none;
+    padding: 8px;
+    font-size: large;
+    width: 204px;
+    text-align: left;
+    background-color: rgb(70, 66, 66);
+}
+
+button:hover {
+    background-color: rgb(151, 139, 139);
+}
+
+.logoutbtn {
+    color: blue;
+    background-color: white;
+    border: none;
+}
+
+.logoutbtn:hover {
+    color: blue;
+    background-color: white
+}
+
+p {
+    font-size: 14px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li button.active-button {
+    background-color: #007bff;
+    color: white;
+}

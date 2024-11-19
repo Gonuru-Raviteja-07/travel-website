@@ -1,0 +1,39 @@
+<div class="sideNav">
+    <div>
+        <h3 class="title"><b>Travel Website</b></h3>
+    </div>
+    <div class="listOfBtns">
+        <nav>
+            <ul>
+                <li>
+                    <button class="btns" [routerLink]="['/home']" routerLinkActive="active-button">Dashboard</button>
+                </li>
+                <li>
+                    <button class="btns" [routerLink]="['/flights']" routerLinkActive="active-button">Flights</button>
+                </li>
+                <li>
+                    <button class="btns">Car</button>
+                </li>
+                <li>
+                    <button class="btns">Hotel</button>
+                </li>
+                <li>
+                    <button class="btns" [routerLink]="['/pickit']" routerLinkActive="active-button">Shopping
+                        Cart</button>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div class="container">
+        <div>
+            <p> Office: {{office}}</p>
+        </div>
+        <div>
+            <p>User : {{info.username}} <button class="logoutbtn" (click)="logout()"><i
+                        class="fa-solid fa-right-from-bracket"></i></button></p>
+        </div>
+        <div>
+            <p>Role : Ticketing Agent</p>
+        </div>
+    </div>
+</div>

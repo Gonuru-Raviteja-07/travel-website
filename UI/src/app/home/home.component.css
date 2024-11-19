@@ -1,0 +1,97 @@
+.outer{
+    display: flex;
+}
+
+.inner{
+    margin-left: 20px;
+    margin-right: 30px;
+}
+
+.listcontainer {
+    display: inline-block;
+    margin-top: 25px;
+    border: 1.5px solid black;
+    border-radius: 5px;
+    height: 45px;
+    gap: 10px;
+}
+
+.choosePassengerbtn{
+    color: white;
+    background-color: #0d6efd;
+}
+
+.btn {
+    border: none;
+    background-color: none;
+    margin: 3px;
+}
+.btn:hover {
+    background-color: lightblue;
+}
+
+.msgContainer {
+    margin-top: 5px;
+}
+
+.msg {
+    padding-top: 10px;
+}
+
+.inputName {
+    border: 2px solid rgb(35, 140, 204);
+}
+
+.dropdwn {
+    height: 29px;
+    border: none;
+}
+
+.btnOne{
+    margin-top: 20px;
+}
+.sideTitle{
+    height: 35px;
+    background-color: rgb(82, 76, 76);
+    border-radius: 3px 3px 0px 0px ;
+}
+.travelers{
+    color: white;
+    padding-top: 4px;
+    padding-left: 5px;
+}
+.tableOne{
+    border: 1.5px solid black;
+    border-radius: 0px 0px 5px 5px;
+}
+.inputs{
+    height: 34px;
+    border: 1.5px solid black;
+}
+.deletebtn{
+    border-radius: 4px;
+    background-color: rgb(115, 109, 109);
+    border: none;
+}
+.msgtwo{
+    margin-left: 5px;
+    font-size:medium;
+}
+.searchbtns{
+    margin-top: 20px;
+    display: flex;
+    gap:12px
+}
+.flightbtn{
+    border: none;
+    color: white;
+    background-color: #0d6efd;
+}
+.hotelbtn,.carbtn,.clearbtn{
+    background-color: rgb(71,70,68);
+    border: none;
+    color: white;
+}
+.rightbtn{
+    margin-left :auto
+}

@@ -1,0 +1,145 @@
+<form>
+    <div class="multi-stop">
+        <div *ngFor="let stop of stops; let i = index">
+            <div class="container oneStopInner">
+                <div>
+                    <button type="button" class="arrowbtn"><i class="fa-solid fa-greater-than"></i></button>
+                </div>
+
+                <div class="container">
+                    <label><b>Origin *</b></label>
+                    <input placeholder="Airport/City code" matInput [formControl]="myControl" [matAutocomplete]="auto"
+                        class="form-select" #fromInput [value]="stop.from">
+                    <mat-autocomplete #auto="matAutocomplete">
+                        <mat-option *ngFor="let option of options" [value]="selectedAirport[0]">{{option}}</mat-option>
+                    </mat-autocomplete>
+                </div>
+
+                <div>
+                    <button type="button" class="searchbtn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+
+                <div class="container">
+                    <label><b>Destination *</b></label>
+                    <input placeholder="Airport/City code" matInput [formControl]="myControl" [matAutocomplete]="auto"
+                        class="form-select" #toInput (input)="updateNextStop(i)">
+                    <mat-autocomplete #auto="matAutocomplete">
+                        <mat-option *ngFor="let option of options" [value]="selectedAirport[0]">{{option}}</mat-option>
+                    </mat-autocomplete>
+                </div>
+
+                <div>
+                    <button type="button" class="searchbtn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+
+                <div class="container w-50">
+                    <label><b>Date *</b></label>
+                    <input type="text" class="form-control date" id="dateInput{{stop.id}}" placeholder="dd/mm/yyyy"
+                        #inputDate [value]="stop.date" [formControl]="dateControl">
+                </div>
+
+                <div>
+                    <button type="button" class="datebtn" id="datePicker{{i}}">
+                        <i class="fa-solid fa-calendar-days"></i>
+                    </button>
+                </div>
+
+                <div class="container w-50">
+                    <label><b>Time</b></label>
+                    <input class="form-control time" placeholder="hh:mm">
+                </div>
+
+                <div>
+                    <button type="button" class="deletebtn searchbtn" (click)="deleteTrip(i)">
+                        <i class="fa-regular fa-trash-can" style="color: whitesmoke;"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="container oneStopInner">
+            <button type="button" class="btn btn addSegment" (click)="addNewTrip()">
+                <i class="fa-solid fa-plus"></i>Add segment
+            </button>
+        </div>
+    </div>
+</form>
+
+<div class="bottomBtns">
+    <button class="btn btn-primary" (click)="searchFlights()">Availability</button>
+</div>
+
+<div *ngIf="displayflights">
+    <div>
+        <button class="result">Result Availability</button>
+    </div>
+
+    <div class="tableOne" *ngFor="let flightsList of listOfFlights; let i=index">
+        <div class="resultAvailability">
+            <p class="searchEntries">{{ info.multiStopFlightSearchData[i].from }}<b> - </b>{{
+                info.multiStopFlightSearchData[i].to }}</p>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th><b>Flight</b></th>
+                    <th><b>BC</b></th>
+                    <th><b>From</b></th>
+                    <th><b>To</b></th>
+                    <th><b>Departure</b></th>
+                    <th><b>Arrival</b></th>
+                    <th><b>Stops</b></th>
+                    <th><b>Duration</b></th>
+                    <th><b>Equipment</b></th>
+                    <th><b>Source</b></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let flight of flightsList; let j = index">
+                    <td>
+                        {{ j + 1 }} <input type="checkbox" [(ngModel)]="flight.checked">
+                    </td>
+                    <td>
+                        <p class="styling"><a routerLink="#">{{ flight.flightNumber }}</a></p>
+                    </td>
+                    <td>
+                        <button *ngFor="let cabin of flight.cabins" class="stylingCabin"
+                            [ngClass]="{'selected': flight.selectedCabin === cabin}" (click)="selectCabin(i, j, cabin, flight)">
+                            {{ cabin }}
+                        </button>
+                    </td>
+                    <td>
+                        <p class="styling"><a routerLink="#">{{ flight.from }}</a></p>
+                    </td>
+                    <td>
+                        <p class="styling"><a routerLink="#">{{ flight.to }}</a></p>
+                    </td>
+                    <td>
+                        <p>{{ flight.departureTime }}</p>
+                    </td>
+                    <td>
+                        <p>{{ flight.arrivalTime }}</p>
+                    </td>
+                    <td>
+                        <p>{{ flight.stops }}</p>
+                    </td>
+                    <td>
+                        <p>{{ flight.duration }}</p>
+                    </td>
+                    <td>
+                        <p>{{ flight.airLine }}</p>
+                    </td>
+                    <td>
+                        <p>AMA</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="showMsg1"></p>
+    </div>
+
+    <div class="bottomBtns">
+        <button class="btn btn-primary" (click)="pickedFlights()">Pick it</button>
+    </div>
+</div>

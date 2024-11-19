@@ -1,0 +1,36 @@
+.roundTripInner {
+    display: flex;
+    padding: 15px;
+    border-radius: 5px;
+    background-color: rgb(234, 231, 231);
+}
+
+.round-trip {
+    border: 1.5px solid black;
+    padding: 12px;
+    border-radius: 0px 0px 5px 5px;
+}
+
+
+.arrowbtn {
+    color: white;
+    border-radius: 50%;
+    background-color: rgb(69, 69, 243);
+    border: none;
+    margin-top: 28px;
+}
+
+.searchbtn,.datebtn{
+    border-radius: 5px;
+    border: none;
+    background-color: rgb(143, 137, 137);
+    color: white;
+    margin-top: 32px;
+}
+input{
+    border: 1.5px solid black;
+}
+
+.bottomBtns {
+    margin-top: 10px;
+}

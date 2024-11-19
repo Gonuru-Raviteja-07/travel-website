@@ -1,0 +1,56 @@
+.btnOne {
+    margin-top: 20px;
+}
+
+.msgContainer {
+    margin-top: 5px;
+}
+
+.msg {
+    padding-top: 10px;
+}
+
+input{
+    border: 1.5px solid black;
+}
+.inputName {
+    border: 2px solid rgb(35, 140, 204);
+}
+
+.dropdwn {
+    height: 29px;
+    border: none;
+}
+
+.sideTitle {
+    height: 35px;
+    background-color: rgb(82, 76, 76);
+    border-radius: 3px 3px 0px 0px;
+}
+
+.travelers {
+    color: white;
+    padding-top: 4px;
+    padding-left: 5px;
+}
+
+.tableOne {
+    border: 1.5px solid black;
+    border-radius: 0px 0px 5px 5px;
+}
+
+.inputs {
+    height: 34px;
+    border: 1.5px solid black;
+}
+
+.deletebtn {
+    border-radius: 4px;
+    background-color: rgb(115, 109, 109);
+    border: none;
+}
+
+.msgtwo {
+    margin-left: 5px;
+    font-size: medium;
+}

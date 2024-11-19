@@ -1,0 +1,31 @@
+<div class="outer">
+    <div class="container">
+        <form>
+            <div>
+                <h6 class="heading">Login</h6>
+                <p class="msg">please enter your Login data</p>
+            </div>
+            <div>
+                <Label>Username</Label>
+                <input type="text" name="username" class="form-control" disabled placeholder={{info.username}}>
+            </div>
+            <div>
+                <Label>Office</Label>
+                <input type="text" name="office" placeholder="Please choose an office" [formControl]="control"
+                    [matAutocomplete]="auto" class="form-select">
+                <mat-autocomplete #auto="matAutocomplete">
+                    <mat-option *ngFor="let office of filteredOffices | async" [value]="office">
+                        {{ office }}
+                    </mat-option>
+                </mat-autocomplete>
+
+            </div>
+            <br>
+            <div class="buttons">
+                <button class="btn btn-primary btnone" (click)="officeSelected()">Select office</button>
+                <button class="btn btn-primary btntwo" (click)="logout()">Logout</button>
+            </div>
+            <p class="error">{{errorMsg}}</p>
+        </form>
+    </div>
+</div>
